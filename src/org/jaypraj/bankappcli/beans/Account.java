@@ -20,7 +20,7 @@ public class Account {
         account.setBalance(0D);
         Bank.getAccounts().add(account);
         Bank.setLastAccount(accountNumber);
-        AppUtils.print("CREATED: Account created successfully! (Account number: " + accountNumber + ")");
+        AppUtils.printLabels("CREATED: Account created successfully! (Account number: " + accountNumber + ")");
         return account;
     }
 
@@ -64,7 +64,7 @@ public class Account {
     public void credit(double amount) {
         if (amount > 0) {
             this.setBalance(this.getBalance() + amount);
-            AppUtils.print("CREDIT: " + amount + " credited. (BALANCE: $" + this.getBalance() + ")");
+            AppUtils.printLabels("CREDIT: " + amount + " credited. (BALANCE: $" + this.getBalance() + ")");
         }
     }
 
@@ -75,9 +75,9 @@ public class Account {
     public void debit(double amount) {
         if (amount > 0 && this.balance >= amount) {
             this.setBalance(this.getBalance() - amount);
-            AppUtils.print("DEBIT: " + amount + " debited. (BALANCE: $" + this.getBalance() + ")");
+            AppUtils.printLabels("DEBIT: " + amount + " debited. (BALANCE: $" + this.getBalance() + ")");
         } else {
-            AppUtils.print("ERROR: Insufficient balance (BALANCE: $" + this.getBalance() + ")");
+            AppUtils.printLabels("ERROR: Insufficient balance (BALANCE: $" + this.getBalance() + ")");
         }
     }
 
@@ -85,6 +85,6 @@ public class Account {
      * Checks account balance
      */
     public void checkBalance() {
-        AppUtils.print("BALANCE: $" + this.getBalance());
+        AppUtils.printLabels("BALANCE: $" + this.getBalance());
     }
 }

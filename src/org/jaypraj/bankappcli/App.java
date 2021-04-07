@@ -48,7 +48,7 @@ public class App {
      * Displays a login menu.
      */
     static void showMenu() {
-        AppUtils.print("Welcome to " + Bank.getName());
+        AppUtils.printLabels("Welcome to " + Bank.getName());
         System.out.println("Please select an appropriate option from below:\n" +
                 "1. Register\n" +
                 "2. Login\n" +
@@ -59,7 +59,7 @@ public class App {
      * Creates a user, and account for that user.
      */
     static void registerUser() {
-        AppUtils.print("User Registration");
+        AppUtils.printLabels("User Registration");
 
         System.out.print("Enter your first name: ");
         String firstName = scanner.next();
@@ -80,7 +80,7 @@ public class App {
      * Logs in user into the application.
      */
     static void login() {
-        AppUtils.print("User Login");
+        AppUtils.printLabels("User Login");
 
         System.out.print("Enter username: ");
         String username = scanner.next();
@@ -98,7 +98,7 @@ public class App {
             account = user.getAccounts().get(0);
             showAccountMenu();
         } else {
-            AppUtils.print("ERROR: Incorrect credentials! Please try again.");
+            AppUtils.printLabels("ERROR: Incorrect credentials! Please try again.");
             return;
         }
     }
@@ -108,9 +108,9 @@ public class App {
      */
     public static void showAccountMenu() {
 
-        AppUtils.print("Welcome, " + user.getFirstName() + " " + user.getLastName());
+        AppUtils.printLabels("Welcome, " + user.getFirstName() + " " + user.getLastName());
         while (true) {
-            AppUtils.print("Account Options");
+            AppUtils.printLabels("Account Options");
 
             System.out.println("Please, select an appropriate option:\n" +
                     "1. Check balance\n" +

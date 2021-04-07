@@ -6,18 +6,18 @@ package org.jaypraj.bankappcli.util;
 public class AppUtils {
     /**
      * Utility method used to print labels in proper format on the console.
-     * @param message Message to be displayed inside the label
+     * @param label Message to be displayed inside the label
      */
-    public static void print(String message) {
-        for (int i = 0; i < message.length() + 4; i++) {
+    public static void printLabels(String label) {
+        for (int i = 0; i < label.length() + 4; i++) {
             System.out.print("=");
         }
-        printLabels(message);
+        printIntermediate(label);
         System.out.print("| ");
-        System.out.print(message);
+        System.out.print(label);
         System.out.print(" |");
-        printLabels(message);
-        for (int i = 0; i < message.length() + 4; i++) {
+        printIntermediate(label);
+        for (int i = 0; i < label.length() + 4; i++) {
             System.out.print("=");
         }
         System.out.println();
@@ -25,12 +25,12 @@ public class AppUtils {
 
     /**
      * Extracted helper method for the print method
-     * @param message
+     * @param label
      */
-    private static void printLabels(String message) {
+    private static void printIntermediate(String label) {
         System.out.println();
         System.out.print("|");
-        for (int i = 0; i < message.length() + 2; i++) {
+        for (int i = 0; i < label.length() + 2; i++) {
             System.out.print(" ");
         }
         System.out.print("|");

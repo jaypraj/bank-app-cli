@@ -19,7 +19,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.accounts = new ArrayList<>();
-        AppUtils.print("CREATED: User created successfully!");
+        AppUtils.printLabels("CREATED: User created successfully!");
     }
 
     public String getFirstName() {
