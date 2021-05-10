@@ -9,6 +9,7 @@ public class Account {
 
     /**
      * Creates a new account, sets the user of account and initial balance as 0
+     *
      * @param user Owner of the account
      * @return account instance
      */
@@ -18,7 +19,6 @@ public class Account {
         account.setAccountNumber(accountNumber);
         account.setUser(user);
         account.setBalance(0D);
-        Bank.getAccounts().add(account);
         Bank.setLastAccount(accountNumber);
         AppUtils.printLabels("CREATED: Account created successfully! (Account number: " + accountNumber + ")");
         return account;
@@ -59,23 +59,25 @@ public class Account {
 
     /**
      * Deposits money to the account
+     *
      * @param amount Amount to be deposited
      */
     public void credit(double amount) {
         if (amount > 0) {
             this.setBalance(this.getBalance() + amount);
-            AppUtils.printLabels("CREDIT: " + amount + " credited. (BALANCE: $" + this.getBalance() + ")");
+            AppUtils.printLabels("CREDIT: $" + amount + " credited. (BALANCE: $" + this.getBalance() + ")");
         }
     }
 
     /**
      * Withdraws amount from the account
+     *
      * @param amount Amount to be withdrawn
      */
     public void debit(double amount) {
         if (amount > 0 && this.balance >= amount) {
             this.setBalance(this.getBalance() - amount);
-            AppUtils.printLabels("DEBIT: " + amount + " debited. (BALANCE: $" + this.getBalance() + ")");
+            AppUtils.printLabels("DEBIT: $" + amount + " debited. (BALANCE: $" + this.getBalance() + ")");
         } else {
             AppUtils.printLabels("ERROR: Insufficient balance (BALANCE: $" + this.getBalance() + ")");
         }
@@ -86,5 +88,12 @@ public class Account {
      */
     public void checkBalance() {
         AppUtils.printLabels("BALANCE: $" + this.getBalance());
+    }
+
+    public void deleteAccount() {
+        Bank.getAccounts().remove(this);
+        Bank.getUsers().remove(this.user);
+
+        AppUtils.printLabels("DELETED: Account deleted successfully.");
     }
 }

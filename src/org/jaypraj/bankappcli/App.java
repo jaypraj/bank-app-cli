@@ -72,7 +72,9 @@ public class App {
 
         User user = new User(firstName, lastName, username, password);
         Account account = Account.createAccount(user);
-        user.getAccounts().add(account);
+        user.setAccount(account);
+        account.setUser(user);
+        Bank.getAccounts().add(account);
         Bank.getUsers().add(user);
     }
 
@@ -95,7 +97,7 @@ public class App {
         }
 
         if (user != null) {
-            account = user.getAccounts().get(0);
+            account = user.getAccount();
             showAccountMenu();
         } else {
             AppUtils.printLabels("ERROR: Incorrect credentials! Please try again.");
@@ -116,7 +118,8 @@ public class App {
                     "1. Check balance\n" +
                     "2. Add money\n" +
                     "3. Withdraw money\n" +
-                    "4. Exit");
+                    "4. Delete account\n" +
+                    "5. Exit");
 
             int option = scanner.nextInt();
             double amount;
@@ -136,6 +139,15 @@ public class App {
                     account.debit(amount);
                     break;
                 case 4:
+                    System.out.print("Are you sure you want delete your account? (y|n): ");
+
+                    if (scanner.next().toLowerCase().equals("y")) {
+                        account.deleteAccount();
+                        user = null;
+                        account = null;
+                    }
+                    return;
+                case 5:
                     return;
                 default:
                     System.out.println("Please select an appropriate option!");

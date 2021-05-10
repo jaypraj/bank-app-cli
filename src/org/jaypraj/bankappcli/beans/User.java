@@ -2,23 +2,19 @@ package org.jaypraj.bankappcli.beans;
 
 import org.jaypraj.bankappcli.util.AppUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class User {
 
     private String firstName;
     private String lastName;
     private String username;
     private String password;
-    private List<Account> accounts;
+    private Account account;
 
     public User(String firstName, String lastName, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
-        this.accounts = new ArrayList<>();
         AppUtils.printLabels("CREATED: User created successfully!");
     }
 
@@ -54,12 +50,12 @@ public class User {
         this.password = password;
     }
 
-    public List<Account> getAccounts() {
-        return accounts;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     @Override

@@ -6,6 +6,7 @@ package org.jaypraj.bankappcli.util;
 public class AppUtils {
     /**
      * Utility method used to print labels in proper format on the console.
+     *
      * @param label Message to be displayed inside the label
      */
     public static void printLabels(String label) {
@@ -25,6 +26,7 @@ public class AppUtils {
 
     /**
      * Extracted helper method for the print method
+     *
      * @param label
      */
     private static void printIntermediate(String label) {
